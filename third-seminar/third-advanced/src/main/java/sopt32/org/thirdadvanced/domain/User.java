@@ -17,7 +17,7 @@ public class User {
     @Column(nullable = false)
     private String nickname;
 
-    @Column(nullable = false)
+    @Column(unique=true, nullable = false) // 중복된 이메일은 보통 서비스에서 사용할 수 없다
     private String email;
 
     @Column(nullable = false)
