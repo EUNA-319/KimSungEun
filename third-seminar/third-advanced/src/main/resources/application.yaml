@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sopt_32?useSSL=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: sopt_server
+    password: 03190000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update # 그러나 테이블은 미리 생성하는 것이 좋다 따라서 운영중인 서버일 때는 JPA로 생성되는 테이블을 참고해 테이블을 미리 생성하자
+    properties:
+      hibernate:
+        format_sql: true
