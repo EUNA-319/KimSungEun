@@ -8,6 +8,8 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import sopt.org.sixthSeminar.config.jwt.JwtService;
+import sopt.org.sixthSeminar.domain.User;
+import sopt.org.sixthSeminar.infrastructure.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,16 +31,16 @@ public class UserIdResolver implements HandlerMethodArgumentResolver {
         final String token = request.getHeader("Authorization");
 
         // 토큰 검증
-        if(!jwtService.verifyToken(token)) {
+        if (!jwtService.verifyToken(token)) {
             throw new RuntimeException(String.format("USER_ID를 가져오지 못했습니다. (%s - %s)", parameter.getClass(), parameter.getMethod()));
         }
 
         // 유저 아이디 반환
         final String tokenContents = jwtService.getJwtContents(token);
-        try{
+        try {
             return Long.parseLong(tokenContents);
-        }catch(NumberFormatException e){
-            throw new RuntimeException(String.format("USER_ID를 가져오지 못했습니다. (%s - %s)",parameter.getClass(),parameter.getMethod()));
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(String.format("USER_ID를 가져오지 못했습니다. (%s - %s)", parameter.getClass(), parameter.getMethod()));
         }
     }
 }

@@ -35,6 +35,7 @@ public class UserService {
         return UserResponseDto.of(newUser.getId(), newUser.getNickname());
     }
 
+    @Transactional
     public Long login(UserLoginRequestDto request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
