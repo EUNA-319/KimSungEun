@@ -1,12 +1,10 @@
 package sopt.org.seventhSeminar.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.seventhSeminar.common.dto.ApiResponse;
 import sopt.org.seventhSeminar.config.jwt.JwtService;
-import sopt.org.seventhSeminar.config.redis.RedisRepository;
 import sopt.org.seventhSeminar.controller.dto.request.TokenReissuedRequestDto;
 import sopt.org.seventhSeminar.controller.dto.request.UserLoginRequestDto;
 import sopt.org.seventhSeminar.controller.dto.request.UserRequestDto;
