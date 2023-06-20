@@ -43,7 +43,7 @@ public class JwtService {
         final Claims claims = Jwts.claims()
                 .setSubject("access_token")
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + 60*60*1000L)); // access Token 만료 기한 1시간으로 설정
+                .setExpiration(new Date(now.getTime() + 60*1000L)); // access Token 만료 기한 1시간으로 설정
         //.setExpiration(new Date(now.getTime() + 60*1000L)); //(refresh 재발급 확인시에는 1분으로 설정한다)
 
         //private claim 등록 => 서버만의 고유 값

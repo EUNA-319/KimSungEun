@@ -22,7 +22,6 @@ import sopt.org.sixthSeminar.service.UserService;
 
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,8 +30,6 @@ public class UserController {
 
     private final UserService userService;
     private final JwtService jwtService;
-    @Autowired
-    private final RedisRepository redisRepository;
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
