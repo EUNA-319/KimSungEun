@@ -1,22 +1,18 @@
 package sopt.org.sixthSeminar.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.sixthSeminar.common.dto.ApiResponse;
 import sopt.org.sixthSeminar.config.jwt.JwtService;
-import sopt.org.sixthSeminar.config.redis.RedisRepository;
 import sopt.org.sixthSeminar.controller.dto.request.TokenReissuedRequestDto;
 import sopt.org.sixthSeminar.controller.dto.request.UserLoginRequestDto;
 import sopt.org.sixthSeminar.controller.dto.request.UserRequestDto;
 import sopt.org.sixthSeminar.controller.dto.response.TokenReissuedResponseDto;
 import sopt.org.sixthSeminar.controller.dto.response.UserLoginResponseDto;
 import sopt.org.sixthSeminar.controller.dto.response.UserResponseDto;
-import sopt.org.sixthSeminar.domain.RefreshToken;
 import sopt.org.sixthSeminar.exception.Error;
 import sopt.org.sixthSeminar.exception.Success;
-import sopt.org.sixthSeminar.exception.model.NotFoundException;
 import sopt.org.sixthSeminar.exception.model.UnauthorizedException;
 import sopt.org.sixthSeminar.service.UserService;
 
