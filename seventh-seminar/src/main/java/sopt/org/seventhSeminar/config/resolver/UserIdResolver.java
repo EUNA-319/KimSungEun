@@ -26,7 +26,8 @@ public class UserIdResolver implements HandlerMethodArgumentResolver {
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         final HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();
-        final String token = request.getHeader("Authorization");
+        //final String token = request.getHeader("Authorization");
+        final String token = request.getHeader("Authorization").split(" ")[1]; // swagger에서 Authorization에 Bearer를 붙여주므로 다음과 같이 변경한다
 
         // 토큰 검증
         if (!jwtService.verifyToken(token)) {
