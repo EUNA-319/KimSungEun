@@ -26,6 +26,7 @@ import java.util.Date;
 @Service
 @RequiredArgsConstructor
 public class JwtService {
+    @Autowired
     RedisRepository redisRepository;
 
     @Value("${jwt.secret}") // application.yaml에 정의한 jwt.secert을 값으로 합니다
