@@ -40,9 +40,11 @@ public class UserService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
-        if (!user.getPassword().equals(request.getPassword())) {
+        if (!user.verifyUserPassword(request.getPassword())) {
             throw new BadRequestException(Error.INVALID_PASSWORD_EXCEPTION, Error.INVALID_PASSWORD_EXCEPTION.getMessage());
-        }
+        } // User Entity 내부에 this.password랑 비교하는 로직으로 빼주는 것이 더 좋을 것 같음!
+        // 서비스 계층은 하나의 로직을 시각화 하는 역할인데, 이런 식으로 서비스에 도메인 로직을 실행하게 되면 코드가 오히려 가독성이 떨어진다
+        // 이런 유저의 비밀번호와 요청으로 들어온 비밀번호가 같은지 비교하는 로직은 로그인 외에도 비밀번호 변경 로직에도 사용할 수 있기 때문이다
 
         return user.getId();
     }

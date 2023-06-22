@@ -33,4 +33,11 @@ public class User extends AuditingTimeEntity {
     public static User newInstance(String nickname, String email, String password) {
         return new User(nickname, email, password);
     }
+
+    public boolean verifyUserPassword(String password){ // 유저의 비밀번호를 검증하는 로직을 추가한다
+        if(this.password.equals(password)){
+            return true;
+        }
+        return false;
+    }
 }

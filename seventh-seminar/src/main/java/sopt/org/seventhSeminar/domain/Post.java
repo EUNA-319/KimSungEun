@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
+// 본래 AllArgsconstructor 어노테이션이 있었는데 이는 현재 도메인에서 필요하지 않은 어노테이션이다
 public class Post extends AuditingTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
